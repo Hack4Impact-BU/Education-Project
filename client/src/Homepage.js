@@ -46,42 +46,60 @@ class Homepage extends React.Component {
                     <Grid item xs={4}>
                         <Card>
                             <CardContent sx={{backgroundColor:'#F5F5F5'}}>
-                                <Typography sx={{fontSize: 16}}>Schedule & Plan Session</Typography>
-                                <Grid container spacing={2} alignItems="center" justifyContent="center">
+                            <Grid container spacing={2}>
+                                <Grid item xs = {12}>
+                                    <Typography sx={{fontSize: 16}}>Schedule & Plan Session</Typography>
+                                </Grid>
+
+                                <Grid item xs={6}>
+                                    <Typography sx={{fontSize: 16, textAlign: 'center'}}>Tutoring Date</Typography>
+                                    <TextField fullWidth id="outlined-basic" inputProps={{ style: {textAlign:'center'} }} label="yyyy-mm-dd" size="small" ></TextField>
+                                    <Typography>INSERT CALENDAR</Typography>
+                                </Grid>
                                     <Grid item xs={6}>
-                                        <Typography sx={{fontSize: 16, textAlign: 'center'}}>Tutoring Date</Typography>
-                                        <TextField fullWidth id="outlined-basic" inputProps={{ style: {textAlign:'center'} }} label="yyyy-mm-dd" size="small" ></TextField>
-                                    </Grid>
-                                    <Grid item xs={6}>
-                                        <Typography sx={{fontSize: 16, textAlign: 'center'}}>Student</Typography>
-                                        <FormControl fullWidth>
-                                            <InputLabel id="demo-simple-select-label">select from dropdown</InputLabel>
-                                            <Select
-                                                labelId="demo-simple-select-label"
-                                                id="demo-simple-select"
-                                                label="Age"
-                                            >
-                                            <MenuItem value={10}>student 1</MenuItem>
-                                            <MenuItem value={20}>student 2</MenuItem>
-                                            <MenuItem value={30}>student 3</MenuItem>
-                                            </Select>
-                                        </FormControl>
-                                        <Typography sx={{fontSize: 16, textAlign: 'center'}}>Subject/Class</Typography>
-                                        <FormControl fullWidth>
-                                            <InputLabel id="demo-simple-select-label">select from dropdown</InputLabel>
-                                            <Select
-                                                labelId="demo-simple-select-label"
-                                                id="demo-simple-select"
-                                                label="Age"
-                                            >
-                                            <MenuItem value={10}>class 1</MenuItem>
-                                            <MenuItem value={20}>class 2</MenuItem>
-                                            <MenuItem value={30}>class 3</MenuItem>
-                                            </Select>
-                                        </FormControl>
-                                        <Typography sx={{fontSize: 16, textAlign: 'center'}}>Notes</Typography>
-                                        <TextField fullWidth id="standard-basic" variant="standard" />
-                                        <Button sx={{alignItems: 'right'}} variant="contained">Submit</Button>
+                                        <Grid container spacing={2}>
+                                            <Grid item xs={12}>
+                                                <Typography sx={{fontSize: 16, textAlign: 'center'}}>Student</Typography>
+                                                <FormControl fullWidth>
+                                                    <InputLabel id="demo-simple-select-label">select from dropdown</InputLabel>
+                                                    <Select
+                                                        labelId="demo-simple-select-label"
+                                                        id="demo-simple-select"
+                                                        label="Age"
+                                                    >
+                                                    <MenuItem value={10}>student 1</MenuItem>
+                                                    <MenuItem value={20}>student 2</MenuItem>
+                                                    <MenuItem value={30}>student 3</MenuItem>
+                                                    </Select>
+                                                </FormControl>
+                                            </Grid>
+                                            <Grid item xs={12}>
+                                                <Typography sx={{fontSize: 16, textAlign: 'center'}}>Subject/Class</Typography>
+                                                <FormControl fullWidth>
+                                                    <InputLabel id="demo-simple-select-label">select from dropdown</InputLabel>
+                                                    <Select
+                                                        labelId="demo-simple-select-label"
+                                                        id="demo-simple-select"
+                                                        label="Age"
+                                                    >
+                                                    <MenuItem value={10}>class 1</MenuItem>
+                                                    <MenuItem value={20}>class 2</MenuItem>
+                                                    <MenuItem value={30}>class 3</MenuItem>
+                                                    </Select>
+                                                </FormControl>
+                                            </Grid>
+                                            <Grid item xs={12}>
+                                                <Typography sx={{fontSize: 16, textAlign: 'center'}}>Notes</Typography>
+                                                <TextField fullWidth
+                                                    id="outlined-multiline-static"
+                                                    multiline
+                                                    rows={4}
+                                                />
+                                            </Grid>
+                                            <Grid item xs={2}>
+                                                <Button variant="contained">Submit</Button>
+                                            </Grid>
+                                        </Grid>
                                     </Grid>
                                 </Grid>
                             </CardContent>
@@ -90,11 +108,16 @@ class Homepage extends React.Component {
                     <Grid item xs={4}>
                         <Card>
                             <CardContent sx={{backgroundColor:'#F5F5F5'}}>
-                                <Typography sx={{fontSize: 16, textAlign: 'center'}}>Schedule & Plan Session</Typography>
-                                <Grid container spacing={2} alignItems="center" justifyContent="center">
+                                
+                                <Grid container spacing={2} justifyContent="center">
+
+                                <Grid item xs = {12}>
+                                    <Typography sx={{fontSize: 16}}>Scheduled</Typography>
+                                </Grid>
                                     <Grid item xs={6}>
                                         <Typography sx={{fontSize: 16, textAlign: 'center'}}>Tutoring Date</Typography>
                                         <TextField fullWidth id="outlined-basic" inputProps={{ style: {textAlign:'center'} }} label="yyyy-mm-dd" size="small" ></TextField>
+
                                     </Grid>
                                     <Grid item xs={6}>
                                         <Typography sx={{fontSize: 16, textAlign: 'center'}}>Student</Typography>
@@ -111,8 +134,8 @@ class Homepage extends React.Component {
                                             </Select>
                                         </FormControl>
                                         <Typography sx={{fontSize: 16, textAlign: 'center'}}>Time</Typography>
-                                        <TextField fullWidth id="standard-basic" label="hours" variant="standard" />
-                                        <TextField fullWidth id="standard-basic" label="minutes" variant="standard" />
+                                        <TextField justifyContent="left" label="hours" variant="standard" />
+                                        <TextField justifyContent="right" label="minutes" variant="standard" />
                                         <Typography sx={{fontSize: 16, textAlign: 'center'}}>Notes</Typography>
                                         <TextField fullWidth id="standard-basic" variant="standard" />
                                         <Button sx={{alignItems: 'right'}} variant="contained">Submit</Button>
@@ -124,8 +147,12 @@ class Homepage extends React.Component {
                     <Grid item xs={4}>
                         <Card>
                             <CardContent sx={{backgroundColor:'#F5F5F5'}}>
-                                <Typography sx={{fontSize: 16}}>Schedule & Plan Session</Typography>
-                                <Grid container spacing={2} alignItems="center" justifyContent="center">
+                                
+                                <Grid container spacing={2} justifyContent="center">
+
+                                <Grid item xs = {12}>
+                                    <Typography sx={{fontSize: 16}}>Completed Sessions</Typography>
+                                </Grid>
                                     <Grid item xs={6}>
                                         <Typography sx={{fontSize: 16, textAlign: 'center'}}>Tutoring Date</Typography>
                                         <TextField fullWidth id="outlined-basic" inputProps={{ style: {textAlign:'center'} }} label="yyyy-mm-dd" size="small" ></TextField>
