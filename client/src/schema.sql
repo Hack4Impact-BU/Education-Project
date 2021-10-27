@@ -1,10 +1,8 @@
 CREATE DATABASE IF NOT EXISTS education_project;
 USE education_project;
 
-DROP TABLE IF EXISTS Users CASCADE;
-DROP TABLE IF EXISTS Students CASCADE;
 DROP TABLE IF EXISTS Sessions CASCADE;
-DROP TABLE IF EXISTS sessions CASCADE;
+DROP TABLE IF EXISTS Students CASCADE;
 DROP TABLE IF EXISTS Tutors CASCADE;
 
 
@@ -121,8 +119,8 @@ CREATE TABLE Students(
  student_id INTEGER,
  tutor_id INTEGER,
  date_of_session DATE,
- student_first_name VARCHAR(100) NOT NULL,
- student_last_name VARCHAR(100) NOT NULL,
+ student_first_name VARCHAR(100),
+ student_last_name VARCHAR(100),
  duration_minutes INTEGER,
  duration_hours INTEGER,
  notes MEDIUMTEXT,
@@ -130,15 +128,11 @@ CREATE TABLE Students(
  course VARCHAR(100),
  
  PRIMARY KEY (student_id, tutor_id),
+ 
  FOREIGN KEY (student_id)
  REFERENCES Students(student_id),
+ 
  FOREIGN KEY (tutor_id)
- REFERENCES Tutors(tutor_id),
- FOREIGN KEY (student_first_name)
- REFERENCES Students(first_name),
- FOREIGN KEY (student_last_name)
- REFERENCES Students(last_name)
- 
- 
+ REFERENCES Tutors(tutor_id)
  )
  
