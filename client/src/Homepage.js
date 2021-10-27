@@ -6,6 +6,8 @@ import CardContent from '@mui/material/CardContent'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 import Select from "@mui/material/Select"
+import InputLabel from '@mui/material/InputLabel'
+import Table from '@mui/material/Table'
 
 
 class Homepage extends React.Component {
@@ -14,44 +16,63 @@ class Homepage extends React.Component {
             <Box sx = {{flexGrow: 1}}>
             <Grid container spacing={2}>
                 <Grid item xs={4}>
-                    <div style={{backgroundColor:"lightGray"}}>Schedule Tutoring Session(s)</div>
+                    <div style={{backgroundColor:"lightGray", textAlign:'center'}}>Schedule Tutoring Session(s)</div>
                 </Grid>
                 <Grid item xs={4}>
-                <div style={{backgroundColor:"lightGray"}}>Log New or Scheduled Session(s)</div>
+                <div style={{backgroundColor:"lightGray", textAlign:'center'}}>Log New or Scheduled Session(s)</div>
                 </Grid>
                 <Grid item xs={4}>
-                <div style={{backgroundColor:"lightGray"}}>Review Completed Tutoring Session(s)</div>
+                <div style={{backgroundColor:"lightGray", textAlign:'center'}}>Review Completed Tutoring Session(s)</div>
                 </Grid>
 
                 <Grid item xs={4}>
                 <Card>
                     <CardContent style={{backgroundColor:"LightGray"}}>
                         <Grid container spacing={2}>
-                            <Grid item xs={6}>
-                                <Typography sx={{fontSize: 16}}>Schedule & Plan Session</Typography>
-                                <TextField id="outlined-basic" inputProps={{ style: {textAlign:'center'} }} label="yyyy-mm-dd" size="small" ></TextField>
-                            </Grid>
-                            <Grid item xs={6}>
-                                <Typography sx={{fontSize: 16}}>Student</Typography>
-                                <Select id="demo-simple-select" label="select from dropdown"></Select>
-                            </Grid>
-                        </Grid>
-                    
-                    </CardContent>
-                </Card>
-                </Grid>
-                <Grid item xs={4}>
-                <Card>
-                    <CardContent style={{backgroundColor:"LightGray"}}>
-                        <Grid container spacing={2}>
-                            <Grid item xs={6}>
-                                <Typography sx={{fontSize: 16}}>Scheduled</Typography>
-                                <TextField id="outlined-basic" inputProps={{ style: {textAlign:'center'} }} label="yyyy-mm-dd" size="small" ></TextField>
-                            </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12}>
+                                <Typography sx={{fontSize: 18}}>Schedule & Plan Session</Typography>
                                 
-                                <Typography sx={{fontSize: 16}}>Student</Typography>
-                                <Select id="demo-simple-select" label="select from dropdown"></Select>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Typography sx={{fontSize: 16}} align="center">Tutoring Date</Typography>
+                                <TextField id="outlined-basic" inputProps={{ style: {textAlign:'center'} }} label="yyyy-mm-dd" size="small" ></TextField>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Typography sx={{fontSize: 16}} align="center">Student</Typography>
+                                {/* <InputLabel id="to-schedule-student-label">select from dropdown</InputLabel> */}
+                                <Select 
+                                    id="to-schedule-student" 
+                                    labelId="to-schedule-student-label" 
+                                    label="select from dropdown"
+                                    sx={{width: '100%'}}
+                                    ></Select>
+                            </Grid>
+                        </Grid>
+                    
+                    </CardContent>
+                </Card>
+                </Grid>
+                <Grid item xs={4}>
+                <Card>
+                <CardContent style={{backgroundColor:"LightGray"}}>
+                        <Grid container spacing={2}>
+                            <Grid item xs={12}>
+                                <Typography sx={{fontSize: 18}}>Scheduled</Typography>
+                                
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Typography sx={{fontSize: 16}} align="center">Tutoring Date</Typography>
+                                <TextField id="outlined-basic" inputProps={{ style: {textAlign:'center'} }} label="yyyy-mm-dd" size="small" ></TextField>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Typography sx={{fontSize: 16}} align="center">Student</Typography>
+                                {/* <InputLabel id="scheduled-student-label">select from dropdown</InputLabel> */}
+                                <Select 
+                                    id="scheduled-student" 
+                                    labelId="scheduled-student-label" 
+                                    label="select from dropdown"
+                                    sx={{width: '100%'}}
+                                    ></Select>
                             </Grid>
                         </Grid>
                     
@@ -61,12 +82,21 @@ class Homepage extends React.Component {
 
                 <Grid item xs={4}>
                 <Card>
-                    <CardContent style={{backgroundColor:"LightGray"}}>tt</CardContent>
+                    <CardContent style={{backgroundColor:"LightGray"}}>
+                    <Grid container spacing={2}>
+                            <Grid item xs={12}>
+                                <Typography sx={{fontSize: 18}}>Completed Sessions</Typography>
+                                
+                            </Grid>
+                        
+                        </Grid>
+                    </CardContent>
                 </Card>
                 </Grid>
 
             </Grid>
             </Box>
+            
         )
     }
 }
