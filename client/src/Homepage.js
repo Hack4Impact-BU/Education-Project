@@ -10,24 +10,25 @@ import InputLabel from '@mui/material/InputLabel'
 import Table from '@mui/material/Table'
 
 
+
 class Homepage extends React.Component {
     render() {
         return (
             <Box sx = {{flexGrow: 1}}>
             <Grid container spacing={2}>
                 <Grid item xs={4}>
-                    <div style={{backgroundColor:"lightGray", textAlign:'center'}}>Schedule Tutoring Session(s)</div>
+                    <div style={{backgroundColor:"WhiteSmoke", textAlign:'center'}}>Schedule Tutoring Session(s)</div>
                 </Grid>
                 <Grid item xs={4}>
-                <div style={{backgroundColor:"lightGray", textAlign:'center'}}>Log New or Scheduled Session(s)</div>
+                <div style={{backgroundColor:"WhiteSmoke", textAlign:'center'}}>Log New or Scheduled Session(s)</div>
                 </Grid>
                 <Grid item xs={4}>
-                <div style={{backgroundColor:"lightGray", textAlign:'center'}}>Review Completed Tutoring Session(s)</div>
+                <div style={{backgroundColor:"WhiteSmoke", textAlign:'center'}}>Review Completed Tutoring Session(s)</div>
                 </Grid>
 
                 <Grid item xs={4}>
                 <Card>
-                    <CardContent style={{backgroundColor:"LightGray"}}>
+                    <CardContent style={{backgroundColor:"WhiteSmoke"}}>
                         <Grid container spacing={2}>
                             <Grid item xs={12}>
                                 <Typography sx={{fontSize: 18}}>Schedule & Plan Session</Typography>
@@ -35,7 +36,7 @@ class Homepage extends React.Component {
                             </Grid>
                             <Grid item xs={6}>
                                 <Typography sx={{fontSize: 16}} align="center">Tutoring Date</Typography>
-                                <TextField id="outlined-basic" inputProps={{ style: {textAlign:'center'} }} label="yyyy-mm-dd" size="small" ></TextField>
+                                <TextField id="outlined-basic"  InputProps={{ inputProps: { style: {textAlign: "center"}}}}label="yyyy-mm-dd" size="small" ></TextField>
                             </Grid>
                             <Grid item xs={6}>
                                 <Typography sx={{fontSize: 16}} align="center">Student</Typography>
@@ -54,7 +55,7 @@ class Homepage extends React.Component {
                 </Grid>
                 <Grid item xs={4}>
                 <Card>
-                <CardContent style={{backgroundColor:"LightGray"}}>
+                <CardContent style={{backgroundColor:"WhiteSmoke"}}>
                         <Grid container spacing={2}>
                             <Grid item xs={12}>
                                 <Typography sx={{fontSize: 18}}>Scheduled</Typography>
@@ -82,7 +83,7 @@ class Homepage extends React.Component {
 
                 <Grid item xs={4}>
                 <Card>
-                    <CardContent style={{backgroundColor:"LightGray"}}>
+                    <CardContent style={{backgroundColor:"WhiteSmoke"}}>
                     <Grid container spacing={2}>
                             <Grid item xs={12}>
                                 <Typography sx={{fontSize: 18}}>Completed Sessions</Typography>
