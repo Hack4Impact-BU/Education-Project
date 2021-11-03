@@ -54,7 +54,7 @@ class Homepage extends React.Component {
 
                                 <Grid item xs={6}>
                                     <Typography sx={{fontSize: 16, textAlign: 'center'}}>Tutoring Date</Typography>
-                                    <TextField fullWidth id="outlined-basic" inputProps={{ style: {textAlign:'center'} }} label="yyyy-mm-dd" size="small" ></TextField>
+                                    <TextField fullWidth id="outlined-basic" label="yyyy-mm-dd" size="small" sx={{backgroundColor: 'white'}} ></TextField>
                                     <Typography>INSERT CALENDAR</Typography>
                                 </Grid>
                                     <Grid item xs={6}>
@@ -67,6 +67,7 @@ class Homepage extends React.Component {
                                                         labelId="demo-simple-select-label"
                                                         id="demo-simple-select"
                                                         label="Age"
+                                                        sx={{backgroundColor: 'white'}}
                                                     >
                                                     <MenuItem value={10}>student 1</MenuItem>
                                                     <MenuItem value={20}>student 2</MenuItem>
@@ -82,6 +83,7 @@ class Homepage extends React.Component {
                                                         labelId="demo-simple-select-label"
                                                         id="demo-simple-select"
                                                         label="Age"
+                                                        sx={{backgroundColor: 'white'}}
                                                     >
                                                     <MenuItem value={10}>class 1</MenuItem>
                                                     <MenuItem value={20}>class 2</MenuItem>
@@ -95,10 +97,77 @@ class Homepage extends React.Component {
                                                     id="outlined-multiline-static"
                                                     multiline
                                                     rows={4}
+                                                    sx={{backgroundColor: 'white'}}
                                                 />
                                             </Grid>
-                                            <Grid item xs={2}>
-                                                <Button variant="contained">Submit</Button>
+                                            
+                                            <Grid item xs={12}>
+                                                <Grid container justifyContent='flex-end'>
+                                                    <Button variant="contained">Submit</Button>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item xs={4}>
+                        <Card>
+                            <CardContent sx={{backgroundColor:'#F5F5F5'}}>
+                            <Grid container spacing={2}>
+                                <Grid item xs = {12}>
+                                    <Typography sx={{fontSize: 16}}>Scheduled</Typography>
+                                </Grid>
+
+                                <Grid item xs={6}>
+                                    <Typography sx={{fontSize: 16, textAlign: 'center'}}>Tutoring Date</Typography>
+                                    <TextField fullWidth id="outlined-basic" label="yyyy-mm-dd" size="small" sx={{backgroundColor: 'white'}} ></TextField>
+                                    <Typography>INSERT CALENDAR</Typography>
+                                </Grid>
+                                    <Grid item xs={6}>
+                                        <Grid container spacing={2}>
+                                            <Grid item xs={12}>
+                                                <Typography sx={{fontSize: 16, textAlign: 'center'}}>Student</Typography>
+                                                <FormControl fullWidth>
+                                                    <InputLabel id="demo-simple-select-label">select from dropdown</InputLabel>
+                                                    <Select
+                                                        labelId="demo-simple-select-label"
+                                                        id="demo-simple-select"
+                                                        label="Age"
+                                                        sx={{backgroundColor: 'white'}}
+                                                    >
+                                                    <MenuItem value={10}>student 1</MenuItem>
+                                                    <MenuItem value={20}>student 2</MenuItem>
+                                                    <MenuItem value={30}>student 3</MenuItem>
+                                                    </Select>
+                                                </FormControl>
+                                            </Grid>
+                                            <Grid item xs={12}>
+                                                <Typography sx={{fontSize: 16, textAlign: 'center'}}>Time</Typography>
+                                                <Grid container spacing={2}>
+                                                    <Grid item xs={6}>
+                                                        <TextField label="hours" variant="outlined" sx={{backgroundColor: 'white'}}/>
+                                                    </Grid>
+                                                    <Grid item xs={6}>
+                                                        <TextField label="minutes" variant="outlined" sx={{backgroundColor: 'white'}} />
+                                                    </Grid>
+                                                </Grid>
+                                            </Grid>
+                                            <Grid item xs={12}>
+                                                <Typography sx={{fontSize: 16, textAlign: 'center'}}>Notes</Typography>
+                                                <TextField fullWidth
+                                                    id="outlined-multiline-static"
+                                                    multiline
+                                                    rows={4}
+                                                    sx={{backgroundColor: 'white'}}
+                                                />
+                                            </Grid>
+                                            
+                                            <Grid item xs={12}>
+                                                <Grid container justifyContent='flex-end'>
+                                                    <Button variant="contained">Submit</Button>
+                                                </Grid>
                                             </Grid>
                                         </Grid>
                                     </Grid>
@@ -113,66 +182,9 @@ class Homepage extends React.Component {
                                 <Grid container spacing={2} justifyContent="center">
 
                                 <Grid item xs = {12}>
-                                    <Typography sx={{fontSize: 16}}>Scheduled</Typography>
-                                </Grid>
-                                    <Grid item xs={6}>
-                                        <Typography sx={{fontSize: 16, textAlign: 'center'}}>Tutoring Date</Typography>
-                                        <TextField fullWidth id="outlined-basic" inputProps={{ style: {textAlign:'center'} }} label="yyyy-mm-dd" size="small" ></TextField>
-
-                                    </Grid>
-                                    <Grid item xs={6}>
-                                        <Typography sx={{fontSize: 16, textAlign: 'center'}}>Student</Typography>
-                                        <FormControl fullWidth>
-                                            <InputLabel id="demo-simple-select-label">select from dropdown</InputLabel>
-                                            <Select
-                                                labelId="demo-simple-select-label"
-                                                id="demo-simple-select"
-                                                label="Age"
-                                            >
-                                            <MenuItem value={10}>student 1</MenuItem>
-                                            <MenuItem value={20}>student 2</MenuItem>
-                                            <MenuItem value={30}>student 3</MenuItem>
-                                            </Select>
-                                        </FormControl>
-                                        <Typography sx={{fontSize: 16, textAlign: 'center'}}>Time</Typography>
-                                        <TextField justifyContent="left" label="hours" variant="standard" />
-                                        <TextField justifyContent="right" label="minutes" variant="standard" />
-                                        <Typography sx={{fontSize: 16, textAlign: 'center'}}>Notes</Typography>
-                                        <TextField fullWidth id="standard-basic" variant="standard" />
-                                        <Button sx={{alignItems: 'right'}} variant="contained">Submit</Button>
-                                    </Grid>
-                                </Grid>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Card>
-                            <CardContent sx={{backgroundColor:'#F5F5F5'}}>
-                                
-                                <Grid container spacing={2} justifyContent="center">
-
-                                <Grid item xs = {12}>
                                     <Typography sx={{fontSize: 16}}>Completed Sessions</Typography>
                                 </Grid>
-                                    <Grid item xs={6}>
-                                        <Typography sx={{fontSize: 16, textAlign: 'center'}}>Tutoring Date</Typography>
-                                        <TextField fullWidth id="outlined-basic" inputProps={{ style: {textAlign:'center'} }} label="yyyy-mm-dd" size="small" ></TextField>
-                                    </Grid>
-                                    <Grid item xs={6}>
-                                        <Typography sx={{fontSize: 16, textAlign: 'center'}}>Student</Typography>
-                                        <FormControl fullWidth>
-                                            <InputLabel id="demo-simple-select-label">select from dropdown</InputLabel>
-                                            <Select
-                                                labelId="demo-simple-select-label"
-                                                id="demo-simple-select"
-                                                label="Age"
-                                            >
-                                            <MenuItem value={10}>student 1</MenuItem>
-                                            <MenuItem value={20}>student 2</MenuItem>
-                                            <MenuItem value={30}>student 3</MenuItem>
-                                            </Select>
-                                        </FormControl>
-                                    </Grid>
+                                    <CompletedSessions></CompletedSessions>
                                 </Grid>
                             </CardContent>
                         </Card>
