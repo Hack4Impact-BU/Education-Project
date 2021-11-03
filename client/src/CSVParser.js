@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Button from '@mui/material/Button';
 
 class CSVParser extends React.Component {
@@ -6,10 +6,9 @@ class CSVParser extends React.Component {
         super(props);
         this.state = {
             selectedFile: null,
-            CSVData: null
+            CSVData: null,
         };
     }
-
 
     onFileSelect = () => {
         const fileElem = document.getElementById("fileElem");
@@ -22,20 +21,29 @@ class CSVParser extends React.Component {
         this.setState({ selectedFile: event.target.files[0] }, this.onFileUpload);
     };
 
-    CSVToArray = (data, delimiter = ',', omitFirstRow = false) => {
-        console.log(data.slice(omitFirstRow ? data.indexOf('\n') + 1 : 0).split('\n').map(v => v.split(delimiter)))
-    }
-
     onFileUpload = () => {
-        const content = document.querySelector('.content');
         const reader = new FileReader();
-        reader.onload = function() {
-            console.log(reader.result);
-            content.innerText = 'CSV File Data:\n\n' + reader.result;
+        reader.onload = () => {
+            this.setState({ CSVData: this.csvToArray(reader.result) });
+
         };
         if (this.state.selectedFile) {
             reader.readAsText(this.state.selectedFile);
         }
+    }
+
+    displayData = () => {
+        const content = document.querySelector('.content');
+        content.innerText = 'CSV File Data:\n\n' + this.state.CSVData;
+        console.log(this.state.CSVData);
+    }
+
+    csvToArray = (str) => {
+        const arr = str.split(",").map(item => item.trim());
+        for (let i = 0; i < arr.length; i++) {
+            arr[i] = arr[i].replace(/['"]+/g, '');
+        }
+        return arr;
     }
 
     render() {
@@ -49,6 +57,7 @@ class CSVParser extends React.Component {
                     <Button variant='outlined' id="fileSelect" onClick={this.onFileSelect}>Start Importing Student / Teachers</Button>
                 </div>
                 <p className="content">CSV File Data:<br/><br/>No File Imported</p>
+                <button onClick={this.displayData}>Display Data</button>
             </div>
         )
     }
