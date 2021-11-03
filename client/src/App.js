@@ -1,11 +1,18 @@
-import React from 'react'
-import Button from '@mui/material/Button';
+// import logo from './logo.svg';
+//import './App.css';
+import './components/signOnBtn.js'
+import GoogleSignOn from './components/signOnBtn.js';
+// import {Grid, Paper, Button} from '@material-ui/core'
+// import './components/gridBar.js'
+// import BasicGrid from './components/gridBar.js';
+import './components/signInForm.js';
+import SignForm from './components/signInForm';
 
 function App() {
   return (
     <div>
-      <h1>Education Project Front-End</h1>
-      <Button>Hello World!</Button>
+      {/* <BasicGrid class="xgrid"></BasicGrid> */}
+      <SignForm></SignForm>
     </div>
   );
 }
