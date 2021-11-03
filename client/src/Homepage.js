@@ -184,7 +184,7 @@ class Homepage extends React.Component {
                                 <Grid item xs = {12}>
                                     <Typography sx={{fontSize: 16}}>Completed Sessions</Typography>
                                 </Grid>
-                                    <CompletedSessions></CompletedSessions>
+                                    <CompletedSessions/>
                                 </Grid>
                             </CardContent>
                         </Card>

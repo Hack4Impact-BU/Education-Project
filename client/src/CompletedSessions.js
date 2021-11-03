@@ -13,8 +13,10 @@ function createData(date, student, time, notes) {
   }
   
   const rows = [
-    createData('2022/02/03', 'John Doe', '1 hour 30 min', 'blah blah blah blah blahblah blah blah blah'),
-    createData('2022/02/03', 'John Doe', '1 hour 30 min', 'blah blah')
+    createData('2022/02/03', 'John Doe', '1 hour 30 min', 'Blah blah blah blah blah'),
+    createData('2022/02/01', 'John Doe', '1 hour 45 min', 'Blah blah blah blah blah'),
+    createData('2022/02/03', 'John Doe', '1 hour 30 min', 'Blah blah blah blah blah'),
+    createData('2022/02/01', 'John Doe', '1 hour 45 min', 'Blah blah blah blah blah')
   ];
 
 export default function CompletedSessions() {
