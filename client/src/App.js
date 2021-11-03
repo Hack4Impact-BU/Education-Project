@@ -1,13 +1,18 @@
 import React from 'react'
 import Button from '@mui/material/Button';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from 'react-router-dom';
 
 function App() {
   return (
-    <div>
-      <h1>Education Project Front-End</h1>
-      <Button>Hello World!</Button>
-    </div>
-  );
+    <Router>
+      <Route path="/" element={<App />} />
+    </Router>
+  )
 }
 
 export default App;
