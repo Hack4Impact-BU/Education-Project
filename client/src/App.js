@@ -1,11 +1,11 @@
 import React from 'react'
-import CSVImport from './csvImport';
+import CSVParser from './CSVParser';
 
 function App() {
   return (
     <div>
-      <h1>Education Project Front-End</h1>
-      <CSVImport/>
+      <h1>CSV Parser</h1>
+      <CSVParser/>
     </div>
   );
 }
