@@ -13,7 +13,7 @@ const path = require('path');
 const connection = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'root',
-	password : 'Penelope1595',
+	password : 'YOURPASSWORD',
 	database : 'education-project'
 });
 
