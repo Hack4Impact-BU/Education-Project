@@ -1,6 +1,7 @@
 import React from 'react'
 import TutorRegistration from './TutorRegistration';
 import CSVParser from './CSVParser';
+import SignInForm from './components/Login/signInForm';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <h1>Education Project Front-End</h1>
       <TutorRegistration></TutorRegistration>
       <CSVParser/>
+      <SignInForm></SignInForm>
     </div>
   );
 }
