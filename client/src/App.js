@@ -1,6 +1,6 @@
 import React from 'react'
-import TutorRegistration from './TutorRegistration';
-import CSVParser from './CSVParser';
+import TutorRegistration from './components/RegistrationForms/TutorRegistration';
+import CSVParser from './components/Setup/CSVParser';
 import SignInForm from './components/Login/signInForm';
 
 function App() {

@@ -1,6 +1,6 @@
 import { Grid, Box, Button } from '@mui/material';
 import React, { Component } from 'react';
-import "./static/TutorRegistration.css";
+import "../../static/TutorRegistration.css";
 
 
 export default class TutorRegistration extends Component {
