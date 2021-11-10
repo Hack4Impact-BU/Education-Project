@@ -17,8 +17,16 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import CompletedSessions from './CompletedSessions';
+import LogNew from './LogNew'
+import LogScheduled from './LogScheduled'
 
 class Homepage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {LogState: 1}
+    }
+
+
     render() {
         return (
             <Box sx={{ flexGrow: 1 }}>
@@ -54,7 +62,7 @@ class Homepage extends React.Component {
 
                                 <Grid item xs={6}>
                                     <Typography sx={{fontSize: 16, textAlign: 'center'}}>Tutoring Date</Typography>
-                                    <TextField fullWidth id="outlined-basic" label="yyyy-mm-dd" size="small" sx={{backgroundColor: 'white'}} ></TextField>
+                                    <TextField fullWidth id="outlined-basic" label="yyyy-mm-dd" sx={{backgroundColor: 'white'}} ></TextField>
                                     <Typography>INSERT CALENDAR</Typography>
                                 </Grid>
                                     <Grid item xs={6}>
@@ -115,63 +123,28 @@ class Homepage extends React.Component {
                     <Grid item xs={4}>
                         <Card>
                             <CardContent sx={{backgroundColor:'#F5F5F5'}}>
-                            <Grid container spacing={2}>
-                                <Grid item xs = {12}>
-                                    <Typography sx={{fontSize: 16}}>Scheduled</Typography>
-                                </Grid>
+                            <Grid container spacing={0.1}>
 
-                                <Grid item xs={6}>
-                                    <Typography sx={{fontSize: 16, textAlign: 'center'}}>Tutoring Date</Typography>
-                                    <TextField fullWidth id="outlined-basic" label="yyyy-mm-dd" size="small" sx={{backgroundColor: 'white'}} ></TextField>
-                                    <Typography>INSERT CALENDAR</Typography>
-                                </Grid>
-                                    <Grid item xs={6}>
-                                        <Grid container spacing={2}>
-                                            <Grid item xs={12}>
-                                                <Typography sx={{fontSize: 16, textAlign: 'center'}}>Student</Typography>
-                                                <FormControl fullWidth>
-                                                    <InputLabel id="demo-simple-select-label">select from dropdown</InputLabel>
-                                                    <Select
-                                                        labelId="demo-simple-select-label"
-                                                        id="demo-simple-select"
-                                                        label="Age"
-                                                        sx={{backgroundColor: 'white'}}
-                                                    >
-                                                    <MenuItem value={10}>student 1</MenuItem>
-                                                    <MenuItem value={20}>student 2</MenuItem>
-                                                    <MenuItem value={30}>student 3</MenuItem>
-                                                    </Select>
-                                                </FormControl>
-                                            </Grid>
-                                            <Grid item xs={12}>
-                                                <Typography sx={{fontSize: 16, textAlign: 'center'}}>Time</Typography>
-                                                <Grid container spacing={2}>
-                                                    <Grid item xs={6}>
-                                                        <TextField label="hours" variant="outlined" sx={{backgroundColor: 'white'}}/>
-                                                    </Grid>
-                                                    <Grid item xs={6}>
-                                                        <TextField label="minutes" variant="outlined" sx={{backgroundColor: 'white'}} />
-                                                    </Grid>
-                                                </Grid>
-                                            </Grid>
-                                            <Grid item xs={12}>
-                                                <Typography sx={{fontSize: 16, textAlign: 'center'}}>Notes</Typography>
-                                                <TextField fullWidth
-                                                    id="outlined-multiline-static"
-                                                    multiline
-                                                    rows={4}
-                                                    sx={{backgroundColor: 'white'}}
-                                                />
-                                            </Grid>
-                                            
-                                            <Grid item xs={12}>
-                                                <Grid container justifyContent='flex-end'>
-                                                    <Button variant="contained">Submit</Button>
-                                                </Grid>
-                                            </Grid>
+                                <Grid item xs = {12}>
+                                    <Grid container spacing={2}>
+                                        <Grid item xs = {2}>
+                                            <Button variant = "text" style={{fontSize:16, textTransform: 'none', color:'black'}}
+                                            onClick={() => {this.setState({ LogState: 1})
+                                            }}>New</Button>
                                         </Grid>
+                                        <Grid item xs = {4}>
+                                            <Button variant = "text" style={{fontSize:16, textTransform: 'none', color:'black'}}
+                                            onClick={() => {this.setState({ LogState: 2})
+                                            }}>Scheduled</Button>
+                                        </Grid>
+                                         
                                     </Grid>
-                                </Grid>
+                                </Grid> 
+                                
+                                {(this.state.LogState == 1) ? <LogNew></LogNew> : <LogScheduled></LogScheduled>} 
+                                
+                               
+                            </Grid>
                             </CardContent>
                         </Card>
                     </Grid>
