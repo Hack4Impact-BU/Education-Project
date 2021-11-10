@@ -4,21 +4,28 @@ USE education_project;
 DROP TABLE IF EXISTS Sessions CASCADE;
 DROP TABLE IF EXISTS Students CASCADE;
 DROP TABLE IF EXISTS Tutors CASCADE;
+DROP TABLE IF EXISTS Users CASCADE;
 
-
-CREATE TABLE Students(
- student_id INTEGER AUTO_INCREMENT,
- first_name VARCHAR(100) NOT NULL,
- last_name VARCHAR(100) NOT NULL,
- email VARCHAR(100) UNIQUE NOT NULL,
- password VARCHAR(100) NOT NULL,
- parent_first_name VARCHAR(100) NOT NULL,
- parent_last_name VARCHAR(100) NOT NULL,
- parent_email VARCHAR(255) NOT NULL,
- parent_phone_number VARCHAR(15) NOT NULL,
- grade VARCHAR(100) NOT NULL,
- age INTEGER NOT NULL,
- state VARCHAR(100) NOT NULL,
+CREATE TABLE Users(
+ user_id INTEGER AUTO_INCREMENT,
+ first_name VARCHAR(100),
+ last_name VARCHAR(100),
+ username VARCHAR(100) UNIQUE NOT NULL,
+ password VARCHAR(500) NOT NULL,
+ phone_number VARCHAR(15),
+ role_category VARCHAR(100),
+ 
+ college VARCHAR(100) NOT NULL,
+ field_study VARCHAR(100),
+ title VARCHAR(100),
+ 
+ parent_first_name VARCHAR(100),
+ parent_last_name VARCHAR(100),
+ parent_email VARCHAR(255),
+ grade VARCHAR(100),
+ 
+ age INTEGER,
+ state VARCHAR(100),
  course_other VARCHAR(100),
  mathematics BOOL,
  biology BOOL,
@@ -58,52 +65,7 @@ CREATE TABLE Students(
  health BOOL,
  sales BOOL,
  notes MEDIUMTEXT,
- heard_from_note MEDIUMTEXT,
- agree_terms BOOL,
- agree_privacy BOOL,
- PRIMARY KEY (student_id)
- );
  
- CREATE TABLE Tutors(
- tutor_id INTEGER AUTO_INCREMENT,
- first_name VARCHAR(100) NOT NULL,
- last_name VARCHAR(100) NOT NULL,
- email VARCHAR(100) UNIQUE NOT NULL,
- college VARCHAR(100) NOT NULL,
- field_study VARCHAR(100),
- title VARCHAR(100),
- 
- password VARCHAR(100) NOT NULL,
- phone_number VARCHAR(15) NOT NULL,
- state VARCHAR(100) NOT NULL,
- 
- course_other VARCHAR(100),
- mathematics BOOL,
- biology BOOL,
- chemistry BOOL,
- physics BOOL,
- psychology BOOL,
- english BOOL,
- history_course BOOL,
- geography BOOL,
- computer_science BOOL,
- general_ed BOOL,
- elementary BOOL,
- middle_school BOOL,
- high_school BOOL,
- english_spoken BOOL,
- spanish_spoken BOOL,
- mandarin_spoken BOOL,
- cantonese_spoken BOOL,
- hindi_spoken BOOL,
- tagalog_spoken BOOL,
- vietnamese_spoken BOOL,
- arabic_spoken BOOL,
- french_spoken BOOL,
- korean_spoken BOOL,
- russian_spoken BOOL,
- german_spoken BOOL,
- other_spoken VARCHAR(100),
  transcript BLOB,
  proof_employment BLOB,
  resume_file BLOB,
@@ -112,8 +74,10 @@ CREATE TABLE Students(
  agree_terms BOOL,
  agree_privacy BOOL,
  agree_tutor BOOL,
- PRIMARY KEY (tutor_id)
+ 
+ PRIMARY KEY (user_id)
  );
+ 
  
  CREATE TABLE Sessions(
  student_id INTEGER,
@@ -130,9 +94,9 @@ CREATE TABLE Students(
  PRIMARY KEY (student_id, tutor_id),
  
  FOREIGN KEY (student_id)
- REFERENCES Students(student_id),
+ REFERENCES Users(user_id),
  
  FOREIGN KEY (tutor_id)
- REFERENCES Tutors(tutor_id)
+ REFERENCES Users(user_id)
  )
  
