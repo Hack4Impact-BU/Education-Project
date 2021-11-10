@@ -7,14 +7,21 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
+import Calendar from 'react-calendar'
 
 export default function LogNew() {
     return (
         <Grid container spacing = {2}>
             <Grid item xs={6}>
-                <Typography sx={{fontSize: 16, textAlign: 'center'}}>Tutoring Date</Typography>
-                    <TextField id="outlined-basic" label="yyyy-mm-dd" sx={{backgroundColor: 'white'}} ></TextField>
-                    <Typography>INSERT CALENDAR</Typography>
+                <Grid container spacing={2}>
+                    <Grid item xs={12}>
+                        <Typography sx={{fontSize: 16, textAlign: 'center'}}>Tutoring Date</Typography>
+                        <TextField fullWidth id="outlined-basic" label="yyyy-mm-dd" sx={{backgroundColor: 'white'}} ></TextField>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Calendar></Calendar>
+                    </Grid>
+                </Grid>
             </Grid>
             <Grid item xs={6}>
                 <Grid container spacing={2}>

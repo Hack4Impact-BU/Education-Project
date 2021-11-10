@@ -32,8 +32,8 @@ export default function LogScheduled() {
     return (
     <Grid container spacing = {2}>
         <Grid item xs={12}>
-            <TableContainer>
-            <Table aria-label="simple table">
+            <TableContainer sx = {{ maxHeight: 175 }}>
+            <Table stickyHeader aria-label="simple table">
                 <TableHead>
                 <TableRow>
                     <TableCell>Date</TableCell>
@@ -44,17 +44,17 @@ export default function LogScheduled() {
                 <TableBody>
                 {rows.map((row) => (
                     <TableRow>
-                    <TableCell>{row.date}</TableCell>
-                    <TableCell>
-                        <div style={{whiteSpace:'nowrap'}}>
-                            {row.student}
-                        </div>
+                        <TableCell>{row.date}</TableCell>
+                        <TableCell>
+                            <div style={{whiteSpace:'nowrap'}}>
+                                {row.student}
+                            </div>
+                            </TableCell>
+                        <TableCell>
+                            <div style={{whiteSpace:'nowrap'}}>
+                                {row.course}
+                            </div>
                         </TableCell>
-                    <TableCell>
-                        <div style={{whiteSpace:'nowrap'}}>
-                            {row.course}
-                        </div>
-                    </TableCell>
                     </TableRow>
                 ))}
                 </TableBody>
