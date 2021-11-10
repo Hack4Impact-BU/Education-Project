@@ -6,6 +6,7 @@ const mysql = require('mysql');
 
 const session = require('express-session');
 const bodyParser = require('body-parser');
+const cookieParser = require("cookie-parser");
 const path = require('path');
 const cors = require("cors");  //5.2k (gzipped: 2.1k)
 
@@ -20,8 +21,8 @@ app.use(cors({
 	credentials: true,
 }));
 
-// app.use(cookieParser());
-// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(
 	session({
@@ -39,7 +40,7 @@ app.use(
 const connection = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'root',
-	password : 'Penelope1595',
+	password : 'PASSWORD',
 	database : 'education-project'
 });
 
@@ -54,7 +55,7 @@ app.post("/register", (req, res) => {
 		}
 
 		db.query(
-			"INSERT INTO Students (email, password) VALUES (?,?)",
+			"INSERT INTO Users (username, password) VALUES (?,?)",
 			[username, hash],
 			(err, result) => {
 				console.log(err);
@@ -79,7 +80,7 @@ app.post("/login", (req, res) => {
 	const password = req.body.password;
 
 	db.query(
-		"SELECT * FROM Students WHERE email = ?",
+		"SELECT * FROM Users WHERE username = ?",
 		username,
 		(err, result) => {
 			if (err){
@@ -93,10 +94,10 @@ app.post("/login", (req, res) => {
 						console.log(req.session.user);
 						res.send(result)
 					} else{
-						res.send({message: "User does not exist"});
+						res.send({message: "Wrong Username or Password"});
 				}});
 			} else {
-				res.send({ message: "Wrong username/password combination"});
+				res.send({ message: "User does not exist"});
 			}
 		}
 	)
@@ -140,7 +141,7 @@ app.get('/home', function(request, response) {
 	if (request.session.loggedin) {
 		response.send('Welcome back, ' + request.session.username + '!');
 	} else {
-		response.send('Please login to view this page!');
+		response.send('Please login to view this page');
 	}
 	response.end();
 });
