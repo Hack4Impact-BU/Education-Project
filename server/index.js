@@ -37,10 +37,11 @@ app.use(
   );
 
 // HASHING PASSWORDS: https://medium.com/technoetics/handling-user-login-and-registration-using-nodejs-and-mysql-81b146e37419
+// https://www.youtube.com/watch?v=W-sZo6Gtx_E&list=RDCMUC8S4rDRZn6Z_StJ-hh7ph8g&index=3
 const connection = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'root',
-	password : 'PASSWORD',
+	password : 'Penelope1595',
 	database : 'education-project'
 });
 
