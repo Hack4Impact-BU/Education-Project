@@ -15,7 +15,7 @@ export default function setUp(){
         },
       });
 
-    const page = 1;
+    const page = 0;
     return(
         page == 0 ? <Button variant="outlined" sx={{m:20, p:.99}}>
             Start Importing Student/Teachers 
