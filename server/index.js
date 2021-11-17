@@ -42,6 +42,14 @@ app.use(
 
 // Google Auth: https://medium.com/@jackrobertscott/how-to-use-google-auth-api-with-node-js-888304f7e3a0
 
+// NEED TO CLARIFY:
+// 1. What are we deploying on? AWS or Google CLoud IAM credentials for the project???
+// 2. Authentificating users using google only? And no password hashing?
+// 3. 2 options: password hashing and google Authentification
+// 4. Am I logging users in on the signup page? Where to register for authentification?
+// 5. Or separate signin page that is more basic just for login and register 
+
+
 const connection = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'root',
