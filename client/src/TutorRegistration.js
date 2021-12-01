@@ -52,6 +52,7 @@ export default class TutorRegistration extends Component {
                 school: "",
                 state: "",
                 field: "",
+                profession: "",
                 subjects: {
                     Mathematics: false,
                     Biology: false,
@@ -83,10 +84,11 @@ export default class TutorRegistration extends Component {
                     Russian: false,
                     German: false
                 },
-                transcipt: null,
+                transcript: null,
                 resume: null,
                 employment: null,
-                hearAbtUs: ""
+                hearAbtUs: "",
+                timezone: ""
             }
         }
     }
@@ -95,6 +97,11 @@ export default class TutorRegistration extends Component {
 
         const form = this.state.form;
 
+        const date = new Date();
+        const dateAsString = date.toString();
+        const timezone = dateAsString.match(/\(([^\)]+)\)$/)[1];
+
+        form['timezone'] = timezone;
 
         axios.post("http://localhost:8080/tutorRegistration", form)
             .then(res => {
@@ -206,7 +213,7 @@ export default class TutorRegistration extends Component {
                             <Grid xs={4.5}>
                                 <div>
                                     <label className="labelClass">* Phone Number (Format: 123-456-7890)</label>
-                                    <input type="phone" name="phone" />
+                                    <input type="phone" name="phone" onChange={this.handlechange} />
                                 </div>
                             </Grid>
                             <Grid xs={3}>
@@ -237,7 +244,7 @@ export default class TutorRegistration extends Component {
                                 <div>
 
                                     <label className="labelClass"> Profession Title: </label>
-                                    <input type="text" name="progTitleTxt" onChange={this.handlechange} />
+                                    <input type="text" name="profession" onChange={this.handlechange} />
                                 </div>
                             </Grid>
                         </Grid>
