@@ -41,8 +41,8 @@ export default class TutorRegistration extends Component {
                 "German",
             ],
             acknowledgements_links: [
-                "https://www.google.com/",
-                "https://www.paypal.com/us/home"
+                "link1",
+                "link2"
             ],
             form: {
                 firstName: "",
@@ -88,7 +88,11 @@ export default class TutorRegistration extends Component {
                 resume: null,
                 employment: null,
                 hearAbtUs: "",
-                timezone: ""
+                timezone: "",
+                acknowledgments: {
+                    link1: false,
+                    link2: false
+                }
             }
         }
     }
@@ -102,6 +106,13 @@ export default class TutorRegistration extends Component {
         const timezone = dateAsString.match(/\(([^\)]+)\)$/)[1];
 
         form['timezone'] = timezone;
+
+        if (!form.acknowledgments.link1 || !form.acknowledgments.link2) {
+            console.log("Please read the terms and conditions");
+            // TODO: indicate error on screen
+
+            return;
+        }
 
         axios.post("http://localhost:8080/tutorRegistration", form)
             .then(res => {
@@ -165,10 +176,14 @@ export default class TutorRegistration extends Component {
 
         const { subjects, languages, gradeLevels, acknowledgements_links } = this.state;
 
-        const description = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
+        const description = `Please fill out the form below with your information and the subjects you 
+        would be comfortable tutoring. Professionals, graduate students, college
+        students, and high school seniors with a college acceptance are
+        eligible to apply. We requre proof to verify this information
+        (unofficial transcript or proof employment) and may also invite
+        you for an informal interview or reference check. Once your
+        application is processed, we'll set up a virtual orientation
+        to get you up to speed with how to get started as a tutor.`;
 
         return (
             <Box id="TutorRegistrationForm">
@@ -335,9 +350,8 @@ export default class TutorRegistration extends Component {
                             {acknowledgements_links.map((link, ind) => {
                                 return (
                                     <div>
-                                        <input type="checkbox" name={link} />
-                                        <label>I have read and agree to the </label>
-                                        <a href={link}>link</a>
+                                        <input type="checkbox" name={link} onChange={() => this.handlecheck(link, "acknowledgments")} />
+                                        <label>I have read and agree to the link</label>
                                     </div>
                                 )
                             })}
