@@ -39,11 +39,22 @@ class CSVParser extends React.Component {
     }
 
     csvToArray = (str) => {
-        const arr = str.split(",").map(item => item.trim());
-        for (let i = 0; i < arr.length; i++) {
-            arr[i] = arr[i].replace(/['"]+/g, '');
-        }
-        return arr;
+        const arr1 = str.split("\n");
+        console.log(arr1);
+        // let ret = [];
+        // for (let i = 0; i < arr1.length; i++) {
+        //     const arr2 = str.split(",").map(item => item.trim());
+        //     for (let j = 0; j < arr2.length; j++) {
+        //         arr2[j] = arr2[j].replace(/['"]+/g, '');
+        //     }
+        //     ret.push(arr2);
+        // }
+        // return ret;
+        // const arr2 = str.split(",").map(item => item.trim());
+        // for (let j = 0; j < arr2.length; j++) {
+        //     arr2[j] = arr2[j].replace(/['"]+/g, '');
+        // }
+        // return arr2;
     }
 
     render() {
@@ -56,7 +67,7 @@ class CSVParser extends React.Component {
                     <input type="file" id="fileElem" accept=".csv" style={{display:'none'}} onChange={this.onFileChange} />
                     <Button variant='outlined' id="fileSelect" onClick={this.onFileSelect}>Start Importing Student / Teachers</Button>
                 </div>
-                <p className="content">CSV File Data:<br/><br/>No File Imported</p>
+                <p className="content">CSV File Data: [USE /n]<br/><br/>No File Imported</p>
                 <button onClick={this.displayData}>Display Data</button>
             </div>
         )
