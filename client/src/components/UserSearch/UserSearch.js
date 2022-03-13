@@ -53,28 +53,30 @@ function UserSearch() {
     <Box sx={{ p: 3 }}>
       <h1>User Search</h1>
       <FormControl>
-            <FormLabel id="">User Type</FormLabel>
-            <RadioGroup
-              row
-              aria-labelledby=""
-              name="userType"
-              value={formValues.userType}
-              onChange={handleInputChange}
-            >
-              <FormControlLabel
-                value="tutor"
-                control={<Radio size="small" />}
-                label="Tutor"
-              />
-              <FormControlLabel
-                value="student"
-                control={<Radio size="small" />}
-                label="Student"
-              />
-            </RadioGroup>
-          </FormControl>
-      <Box sx={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 3 }}>
-        <Grid container direction="column" gap={1} >
+        <FormLabel id="">User Type</FormLabel>
+        <RadioGroup
+          row
+          aria-labelledby=""
+          name="userType"
+          value={formValues.userType}
+          onChange={handleInputChange}
+        >
+          <FormControlLabel
+            value="tutor"
+            control={<Radio size="small" />}
+            label="Tutor"
+          />
+          <FormControlLabel
+            value="student"
+            control={<Radio size="small" />}
+            label="Student"
+          />
+        </RadioGroup>
+      </FormControl>
+      <Box
+        sx={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 3 }}
+      >
+        <Grid container direction="column" gap={1}>
           <TextField
             id=""
             label="First Name"
@@ -150,7 +152,7 @@ function UserSearch() {
             <Select
               labelId=""
               size="small"
-              name = "matchStep"
+              name="matchStep"
               value={formValues.matchStep}
               label="Match Step"
               autoWidth
