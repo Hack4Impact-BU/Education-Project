@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import MuiPhoneNumber from "material-ui-phone-number";
+import UserSearchTable from "./UserSearchTable";
 
 function UserSearch() {
   const defaultValues = {
@@ -44,6 +45,7 @@ function UserSearch() {
     e.preventDefault();
     console.log(formValues);
     // Clear form values?
+    // setFormValues(defaultValues)
   };
 
   return (
@@ -107,10 +109,10 @@ function UserSearch() {
       />
       <MuiPhoneNumber
         id=""
-        dropdownClass="mui-dropdown"
+        label="Phone #"
+        // dropdownClass="mui-dropdown"
         variant="outlined"
         size="small"
-        // dropdownClass=""
         disableAreaCodes={true}
         defaultCountry={"us"}
         value={formValues.phone}
@@ -144,9 +146,7 @@ function UserSearch() {
           autoWidth
           onChange={handleInputChange}
         >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          <MenuItem value={10}>Test</MenuItem>
         </Select>
       </FormControl>
       <TextField
@@ -170,6 +170,8 @@ function UserSearch() {
       <Button variant="outlined" size="small" onClick={handleSubmit}>
         Search
       </Button>
+      <hr></hr>
+      <UserSearchTable />
     </>
   );
 }
