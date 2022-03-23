@@ -68,6 +68,7 @@ export default class AdminTutorReferenceChecks extends Component {
                                 <input type="text" name="relationship" onChange={this.handlechange} />
                             </Grid>
                         </Grid>
+                        <label>______________________________________________________________________________________________________________</label>
 
                             <label reqFields="reqFields">Note this is not an automated message from our system....</label>
                             <label><b>Sample Email or Text</b></label>
@@ -82,7 +83,7 @@ export default class AdminTutorReferenceChecks extends Component {
 
                             <label>YYY</label>
                             
-                            <hr />   
+                            <label>______________________________________________________________________________________________________________</label>
                             <label><b>Starting the call</b></label>
 
                             <label>Hi, my name is YYY and I'm calling to conduct a reference check for TestTutor2First TestTutor2Last, who is being considered for the position of a volunteer tutor. Your name has been provided by TestTutor2First TestTutor2Last, as a reference. The reference check will take approximately 5 minutes to complete.</label>
@@ -131,11 +132,17 @@ export default class AdminTutorReferenceChecks extends Component {
                             })}
                         </Grid>
 
-
+                        <Grid container>
+                            <Grid xs={15}>
+                                <label className="labelClass">Concerns of Interviewer </label>
+                                <input type="text" name="concerns" onChange={this.handlechange} />
+                            </Grid>
+                            
+                        </Grid>
                         
 
 
-                        <input type="submit" value="submit" id="submitButton" />
+                        <input type="submit" value="Submit Reference Check/Save Progress" id="submitButton" />
                         <label reqFields="reqFields">* Indicates required field for completion...
                         </label>
 

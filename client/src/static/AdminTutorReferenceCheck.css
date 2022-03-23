@@ -71,14 +71,14 @@ input[type=checkbox] {
 }
 
 #optionalText {
-    width: 600px;
+    width: 700px;
     height: 75px;
     border: none;
     border-radius: 5px;
 }
 
 #submitButton {
-    width: 150px;
+    width: 250px;
     height: 30px;
     background-color: #007bbc;
     color: white;
