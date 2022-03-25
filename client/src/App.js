@@ -5,6 +5,7 @@ import TutorRegistration from './components/RegistrationForms/TutorRegistration'
 import CSVParser from './components/Setup/CSVParser';
 import SignInForm from './components/Login/signInForm';
 import Homepage from './components/Homepage/Homepage';
+import SuperAdmin from './components/Super\ Admin/SuperAdmin';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route exact path='/signin' element={ <SignInForm/> }/>
         <Route exact path='/tutorRegistration' element={ <TutorRegistration/> }/>
         <Route exact path='/setup' element={ <CSVParser/> }/>
+        <Route exact path='/super-admin' element={ <SuperAdmin/> }/> {/* Added by Rithvik Doshi */}
       </Routes>
       </div>
     </div>
