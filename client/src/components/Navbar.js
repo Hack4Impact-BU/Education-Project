@@ -39,6 +39,12 @@ export default function Navbar() {
             <MenuItem><Link to='/setup' style={{textDecoration:'none'}}><Button variant="contained" style={{background:'#03851a', color:'#ffffff'}}>
                 Set Up
             </Button></Link></MenuItem>
+            <MenuItem><Link to='/user-search' style={{textDecoration:'none'}}><Button variant="contained" style={{background:'#03851a', color:'#ffffff'}}>
+                User Search
+            </Button></Link></MenuItem>
+            <MenuItem><Link to='/bkgcheck' style={{textDecoration:'none'}}><Button variant="contained" style={{background:'#03851a', color:'#ffffff'}}>
+                Background Check
+            </Button></Link></MenuItem>
             <MenuItem><CustomizedMenus/></MenuItem> {/* Super Admin component added by Rithvik Doshi */}
         </Toolbar>
       </AppBar>

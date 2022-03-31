@@ -23,6 +23,8 @@ function App() {
         <Route exact path='/signin' element={ <SignInForm/> }/>
         <Route exact path='/tutorRegistration' element={ <TutorRegistration/> }/>
         <Route exact path='/setup' element={ <CSVParser/> }/>
+        <Route exact path='/user-search' element={ <UserSearch/> }/>
+        <Route exact path='/bkgcheck' element={ <BackgroundCheck/> }/>
         <Route exact path='/super-admin/all-tutors' element={ <AllTutors/> }/> {/* Added by Rithvik Doshi */}
       </Routes>
       </div>
