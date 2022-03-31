@@ -5,6 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { MenuItem, Button, Grid } from '@material-ui/core';
+import CustomizedMenus from './Super Admin/CustomizedMenus';
   
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,8 +23,9 @@ export default function Navbar() {
     <div className={classes.root}>
       <AppBar position="static" style={{ background: '#87F5EC' }}>
         <Toolbar variant="dense">
-            <Typography variant="h6" color="inherit" style={{color:'#000000'}}>
+            <Typography variant="h6" color="inherit" style={{color:'#000000'}}><Link to='/' style={{textDecoration:'none'}}>
                 Welcome to Education Project! 
+                </Link>
             </Typography>
             <MenuItem><Link to='/home' style={{textDecoration:'none'}}><Button variant="contained" style={{background:'#03851a', color:'#ffffff'}}>
                 Home
@@ -37,9 +39,7 @@ export default function Navbar() {
             <MenuItem><Link to='/setup' style={{textDecoration:'none'}}><Button variant="contained" style={{background:'#03851a', color:'#ffffff'}}>
                 Set Up
             </Button></Link></MenuItem>
-            <MenuItem><Link to='/super-admin' style={{textDecoration:'none'}}><Button variant="contained" style={{background:'#03851a', color:'#ffffff'}}>
-                Super Admin
-            </Button></Link></MenuItem> {/* Super Admin component added by Rithvik Doshi */}
+            <MenuItem><CustomizedMenus/></MenuItem> {/* Super Admin component added by Rithvik Doshi */}
         </Toolbar>
       </AppBar>
       <Grid style={{height:'5vh'}}></Grid>

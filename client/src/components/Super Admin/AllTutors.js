@@ -38,7 +38,7 @@ const rows = [
     { id: 9, lastName: 'Roxie', firstName: 'Harvey', ord: 65 },
   ];  
 
-class SuperAdmin extends React.Component {
+class AllTutors extends React.Component {
 
 render() {
 
@@ -46,7 +46,7 @@ render() {
     return(
         <div class="center">
             <Typography variant="h4" color="inherit" style={{color:'#000000'}}>
-                Super Admin - User Table
+                Super Admin - All Tutors
             </Typography>
             <br/>
             <div style={{ height: 600, width: '100%' }}>
@@ -65,4 +65,4 @@ render() {
 
 }
 
-export default SuperAdmin;
+export default AllTutors;
