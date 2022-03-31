@@ -6,6 +6,7 @@ import CSVParser from './components/Setup/CSVParser';
 import SignInForm from './components/Login/signInForm';
 import Homepage from './components/Homepage/Homepage';
 import UserSearch from './components/UserSearch/UserSearch';
+import BackgroundCheck from './components/Forms/BackgroundCheck';
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
         <Route exact path='/tutorRegistration' element={ <TutorRegistration/> }/>
         <Route exact path='/setup' element={ <CSVParser/> }/>
         <Route exact path='/search' element={ <UserSearch/> }/>
+        <Route exact path='/BackgroundCheck' element={ <BackgroundCheck/> } />
+
       </Routes>
       </div>
     </div>
