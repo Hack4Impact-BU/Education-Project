@@ -6,6 +6,9 @@ import CSVParser from './components/Setup/CSVParser';
 import SignInForm from './components/Login/signInForm';
 import Homepage from './components/Homepage/Homepage';
 import AllTutors from './components/Super Admin/AllTutors';
+import UserSearch from './components/UserSearch/UserSearch';
+import BackgroundCheck from './components/Forms/BackgroundCheck';
+
 
 function App() {
   return (
