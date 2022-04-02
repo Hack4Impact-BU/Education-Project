@@ -5,6 +5,8 @@ import TutorRegistration from './components/RegistrationForms/TutorRegistration'
 import CSVParser from './components/Setup/CSVParser';
 import SignInForm from './components/Login/signInForm';
 import Homepage from './components/Homepage/Homepage';
+import StudentDataAnalytics from './components/Homepage/StudentDataAnalytics';
+import TutorDataAnalytics from './components/Homepage/TutorDataAnalytics';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route exact path='/signin' element={ <SignInForm/> }/>
         <Route exact path='/tutorRegistration' element={ <TutorRegistration/> }/>
         <Route exact path='/setup' element={ <CSVParser/> }/>
+        <Route exact path = '/dataPage' element = {<StudentDataAnalytics/>}/>
+        <Route exact path = '/dataPage2' element = {<TutorDataAnalytics/>}/>
       </Routes>
       </div>
     </div>

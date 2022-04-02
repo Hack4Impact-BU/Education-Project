@@ -37,6 +37,12 @@ export default function Navbar() {
             <MenuItem><Link to='/setup' style={{textDecoration:'none'}}><Button variant="contained" style={{background:'#03851a', color:'#ffffff'}}>
                 Set Up
             </Button></Link></MenuItem>
+            <MenuItem><Link to='/datapage' style={{textDecoration:'none'}}><Button variant="contained" style={{background:'#03851a', color:'#ffffff'}}>
+              Student Data Analytics
+            </Button></Link></MenuItem>
+            <MenuItem><Link to='/datapage2' style={{textDecoration:'none'}}><Button variant="contained" style={{background:'#03851a', color:'#ffffff'}}>
+              Tutor Data Analytics
+            </Button></Link></MenuItem>
         </Toolbar>
       </AppBar>
       <Grid style={{height:'5vh'}}></Grid>
