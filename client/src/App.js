@@ -8,6 +8,7 @@ import Homepage from './components/Homepage/Homepage';
 import AllTutors from './components/Super Admin/AllTutors';
 import UserSearch from './components/UserSearch/UserSearch';
 import BackgroundCheck from './components/Forms/BackgroundCheck';
+import MatchingPool from './components/Super Admin/MatchingPool';
 
 
 function App() {
@@ -25,7 +26,8 @@ function App() {
         <Route exact path='/setup' element={ <CSVParser/> }/>
         <Route exact path='/user-search' element={ <UserSearch/> }/>
         <Route exact path='/bkgcheck' element={ <BackgroundCheck/> }/>
-        <Route exact path='/super-admin/all-tutors' element={ <AllTutors/> }/> {/* Added by Rithvik Doshi */}
+        <Route exact path='/super-admin/all-tutors' element={ <AllTutors/> }/>
+        <Route exact path='/super-admin/matching-pool' element={ <MatchingPool/> }/> {/* Added by Rithvik Doshi */}
       </Routes>
       </div>
     </div>

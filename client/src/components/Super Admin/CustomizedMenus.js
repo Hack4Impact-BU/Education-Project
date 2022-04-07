@@ -86,7 +86,7 @@ export default function CustomizedMenus() {
           <Link to='/super-admin/all-tutors' style={{textDecoration:'none'}}>All Tutors</Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Link to='/super-admin/#' style={{textDecoration:'none'}}>Matching Pool</Link>
+          <Link to='/super-admin/matching-pool' style={{textDecoration:'none'}}>Matching Pool</Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <Link to='/super-admin/#' style={{textDecoration:'none'}}>Student Assignments</Link>
