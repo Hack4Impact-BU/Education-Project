@@ -1,0 +1,91 @@
+.labelClass {
+    min-width: 100px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.checkboxLabelClass {
+    margin: 0px 10px;
+}
+
+input[type=text], input[type=phone], input[type=email] {
+    border-radius: 5px;
+    border: 1px solid white;
+    display:block;
+    height: 20px;
+    width: 80%;
+}
+
+input[type=file]::file-selector-button {
+    width: 100px;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    background-color: #b1b1b1;
+}
+input[type=file]::file-selector-button:hover {
+    background-color: #ABABAB;
+}
+
+input[type=checkbox] {
+    border: none;
+    height: 10px;
+}
+
+
+#AdminTutorRefForm {
+    background-color: #e4e4e4;
+    margin: 0 15%;
+    min-width: 600px;
+    max-width: 60%;
+    padding: 25px;
+}
+
+#TutorRegDescription{
+    margin-bottom: 20px;
+}
+
+#selectDropDown {
+    border: none;
+    border-radius: 5px;
+    width: 75%;
+    height: 25px;
+}
+
+#otherSubjectsSpan{
+    white-space: nowrap;
+}
+
+#otherSubjectsSpan > *{
+    display: inline-block;
+}
+
+#otherSubjects {
+    width: 300px;
+    margin-left: 10px;
+}
+
+#otherLanguages {
+    width: 200px;
+    margin-left: 10px;
+}
+
+#optionalText {
+    width: 700px;
+    height: 75px;
+    border: none;
+    border-radius: 5px;
+}
+
+#submitButton {
+    width: 250px;
+    height: 30px;
+    background-color: #007bbc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#submitButton:hover {
+    background-color: #009AEB;
+}

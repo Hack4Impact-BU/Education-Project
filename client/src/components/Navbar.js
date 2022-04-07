@@ -34,6 +34,9 @@ export default function Navbar() {
             <MenuItem><Link to='/tutorRegistration' style={{textDecoration:'none'}}><Button variant="contained" style={{background:'#03851a', color:'#ffffff'}}>
                 Tutor Registration
             </Button></Link></MenuItem>
+            <MenuItem><Link to='/adminTutorReferenceChecks' style={{textDecoration:'none'}}><Button variant="contained" style={{background:'#03851a', color:'#ffffff'}}>
+              Admin Tutor Referenece Check
+            </Button></Link></MenuItem>
             <MenuItem><Link to='/setup' style={{textDecoration:'none'}}><Button variant="contained" style={{background:'#03851a', color:'#ffffff'}}>
                 Set Up
             </Button></Link></MenuItem>
