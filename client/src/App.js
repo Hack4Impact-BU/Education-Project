@@ -11,6 +11,11 @@ import SuperAdmin from './components/Super\ Admin/SuperAdmin';
 
 import UserSearch from './components/UserSearch/UserSearch';
 
+import PhoneScreenInterview from './components/PhoneScreenInterview/PhoneScreenInterview';
+
+import TutorStateSpecifics from './components/Analytics/TutorStateSpecifics';
+
+
 import ContactCardStudent from './components/ContactCardStudent';
 
 import BackgroundCheck from './components/Forms/BackgroundCheck';
@@ -34,10 +39,14 @@ function App() {
 
         <Route exact path='/search' element={ <UserSearch/> }/>
 
+        <Route exact path='/phoneScreenInterview' element= { <PhoneScreenInterview/> } />
+        <Route exact path='/analytics' element={ <TutorStateSpecifics/> }/>
+
         {/* Contact card to take in props? */}
         <Route exact path='/contactStudent' element={ <ContactCardStudent/> }/> 
 
         <Route exact path='/BackgroundCheck' element={ <BackgroundCheck/> } />
+
 
 
       </Routes>
@@ -46,5 +55,6 @@ function App() {
     </Router>
   );
 }
+
 
 export default App;
