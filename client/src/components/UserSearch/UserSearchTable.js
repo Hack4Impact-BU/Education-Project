@@ -15,26 +15,26 @@ function UserSearchTable() {
       backgroundColor: theme.palette.primary.dark,
       color: theme.palette.common.white,
     },
-    [`&.${tableCellClasses.body}`]: {
-      // fontSize: 14,
-    },
+    [`&.${tableCellClasses.body}`]: {},
   }));
 
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
     "&:nth-of-type(odd)": {
       backgroundColor: theme.palette.action.hover,
     },
-    // hide last border
+    // Hide last border
     "&:last-child td, &:last-child th": {
       border: 0,
     },
   }));
 
   return (
+    // Map over data as TableRows in TableBody
+    // https://mui.com/components/tables/#BasicTable.js
     <>
       <h2>Showing results for: </h2>
       <TableContainer>
-        <Table sx={{ minWidth: 700 }} aria-label="customized table">
+        <Table sx={{ minWidth: 700 }} aria-label="user search table">
           <TableHead>
             <TableRow>
               <StyledTableCell align="center">First Name</StyledTableCell>

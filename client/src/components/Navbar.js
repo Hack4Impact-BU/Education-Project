@@ -45,6 +45,11 @@ export default function Navbar() {
             <MenuItem><Link to='/analytics' style={{textDecoration:'none'}}><Button variant="contained" style={{background:'#03851a', color:'#ffffff'}}>
                 Analytics
             </Button></Link></MenuItem>
+
+            <MenuItem><Link to='/super-admin' style={{textDecoration:'none'}}><Button variant="contained" style={{background:'#03851a', color:'#ffffff'}}>
+                Super Admin
+            </Button></Link></MenuItem> {/* Super Admin component added by Rithvik Doshi */}
+
         </Toolbar>
       </AppBar>
       <Grid style={{height:'5vh'}}></Grid>
