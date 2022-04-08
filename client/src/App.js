@@ -14,6 +14,8 @@ import ContactCardStudent from './components/ContactCardStudent';
 
 import BackgroundCheck from './components/Forms/BackgroundCheck';
 
+import SuperAdminTutorOrientation from './components/Super Admin/SuperAdminTutorOrientation';
+
 
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
         <Route exact path='/contactStudent' element={ <ContactCardStudent/> }/> 
 
         <Route exact path='/BackgroundCheck' element={ <BackgroundCheck/> } />
+
+        <Route exact path='/SuperAdminTutorOrientation' element={<SuperAdminTutorOrientation/>} />
 
 
       </Routes>
