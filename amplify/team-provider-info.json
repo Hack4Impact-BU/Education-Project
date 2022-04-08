@@ -1,0 +1,21 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-educationproject-dev-154945-authRole",
+      "UnauthRoleArn": "arn:aws:iam::478299424357:role/amplify-educationproject-dev-154945-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::478299424357:role/amplify-educationproject-dev-154945-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-educationproject-dev-154945-deployment",
+      "UnauthRoleName": "amplify-educationproject-dev-154945-unauthRole",
+      "StackName": "amplify-educationproject-dev-154945",
+      "StackId": "arn:aws:cloudformation:us-east-1:478299424357:stack/amplify-educationproject-dev-154945/e10c8640-b6ab-11ec-b4fc-0a5ceb1028fb",
+      "AmplifyAppId": "d5nsu3vq8amjd"
+    },
+    "categories": {
+      "auth": {
+        "educationproject3e9e2fc7": {},
+        "educationproject217923a0": {}
+      }
+    }
+  }
+}

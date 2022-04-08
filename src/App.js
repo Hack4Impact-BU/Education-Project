@@ -6,9 +6,7 @@ import AdminTutorReferenceChecks from './components/RegistrationForms/AdminTutor
 import CSVParser from './components/Setup/CSVParser';
 import SignInForm from './components/Login/signInForm';
 import Homepage from './components/Homepage/Homepage';
-
 import SuperAdmin from './components/Super\ Admin/SuperAdmin';
-
 import UserSearch from './components/UserSearch/UserSearch';
 
 import PhoneScreenInterview from './components/PhoneScreenInterview/PhoneScreenInterview';
@@ -20,12 +18,17 @@ import ContactCardStudent from './components/ContactCardStudent';
 
 import BackgroundCheck from './components/Forms/BackgroundCheck';
 
+import { Authenticator } from '@aws-amplify/ui-react'
+
+import '@aws-amplify/ui-react/styles.css';
 
 
 function App() {
   return (
-    <Router>
+    <Authenticator socialProviders={['amazon', 'apple', 'facebook', 'google']}>
+      {({ signOut, user}) => (
     <div className="App">
+     <Router>
       <Navbar />
       <div className="content">      
       <Routes>
@@ -50,9 +53,13 @@ function App() {
 
 
       </Routes>
+      <h1>Hello {user.username}</h1>
+          <button onClick={signOut}>Sign out</button>
       </div>
-    </div>
+    
     </Router>
+   
+    </div> ) } </Authenticator>
   );
 }
 

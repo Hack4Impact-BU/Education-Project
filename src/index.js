@@ -5,6 +5,11 @@ import Setup from './components/setUp';
 // import Navbar from './Navbar';
 import reportWebVitals from './reportWebVitals';
 
+
+import Amplify from 'aws-amplify';
+import config from './aws-exports';
+Amplify.configure(config);
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
