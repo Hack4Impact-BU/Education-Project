@@ -23,7 +23,7 @@ import { Authenticator } from '@aws-amplify/ui-react'
 import '@aws-amplify/ui-react/styles.css';
 
 
-function App() {
+export default function App() {
   return (
     <Authenticator socialProviders={['amazon', 'apple', 'facebook', 'google']}>
       {({ signOut, user}) => (
@@ -64,4 +64,3 @@ function App() {
 }
 
 
-export default App;
