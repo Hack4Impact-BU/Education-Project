@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Navbar from './components/Navbar'
 import TutorRegistration from './components/RegistrationForms/TutorRegistration';
@@ -21,40 +21,57 @@ import BackgroundCheck from './components/Forms/BackgroundCheck';
 import { Authenticator } from '@aws-amplify/ui-react'
 
 import '@aws-amplify/ui-react/styles.css';
-import { listNotes } from './graphql/queries';
-import { createNote as createNoteMutation, deleteNote as deleteNoteMutation } from './graphql/mutations';
+import Amplify, { API, graphqlOperation } from 'aws-amplify'
+import { createTodo } from './graphql/mutations'
+import { listTodos } from './graphql/queries'
 
-const initialFormState = { name: '', description: '' }
-export default function App() {
-  const [notes, setNotes] = useState([]);
-  const [formData, setFormData] = useState(initialFormState);
+import awsExports from "./aws-exports";
+Amplify.configure(awsExports);
+
+
+const initialState = { name: '', description: '' }
+
+
+const App = () => {
+  const [formState, setFormState] = useState(initialState)
+  const [todos, setTodos] = useState([])
 
   useEffect(() => {
-    fetchNotes();
-  }, []);
+    fetchTodos()
+  }, [])
 
-  async function fetchNotes() {
-    const apiData = await API.graphql({ query: listNotes });
-    setNotes(apiData.data.listNotes.items);
+  function setInput(key, value) {
+    setFormState({ ...formState, [key]: value })
   }
 
-  async function createNote() {
-    if (!formData.name || !formData.description) return;
-    await API.graphql({ query: createNoteMutation, variables: { input: formData } });
-    setNotes([ ...notes, formData ]);
-    setFormData(initialFormState);
+  async function fetchTodos() {
+    try {
+      const todoData = await API.graphql(graphqlOperation(listTodos))
+      const todos = todoData.data.listTodos.items
+      setTodos(todos)
+    } catch (err) { console.log('error fetching todos') }
   }
 
-  async function deleteNote({ id }) {
-    const newNotesArray = notes.filter(note => note.id !== id);
-    setNotes(newNotesArray);
-    await API.graphql({ query: deleteNoteMutation, variables: { input: { id } }});
+  async function addTodo() {
+    try {
+      if (!formState.name || !formState.description) return
+      const todo = { ...formState }
+      setTodos([...todos, todo])
+      setFormState(initialState)
+      await API.graphql(graphqlOperation(createTodo, {input: todo}))
+    } catch (err) {
+      console.log('error creating todo:', err)
+    }
   }
+
   return (
-    <Authenticator socialProviders={['amazon', 'apple', 'facebook', 'google']}>
+    <Authenticator >
       {({ signOut, user}) => (
     <div className="App">
       
+      <h1>Hello {user.username}</h1>
+        <button style={styles.button} onClick={signOut}>Sign out</button>
+        <br />
      <Router>
       <Navbar />
       <div className="content">      
@@ -65,14 +82,14 @@ export default function App() {
         <Route exact path='/adminTutorReferenceChecks' element={ <AdminTutorReferenceChecks/> }/>
         <Route exact path='/setup' element={ <CSVParser/> }/>
 
-        <Route exact path='/super-admin' element={ <SuperAdmin/> }/> {/* Added by Rithvik Doshi */}
+        <Route exact path='/super-admin' element={ <SuperAdmin/> }/> 
 
         <Route exact path='/search' element={ <UserSearch/> }/>
 
         <Route exact path='/phoneScreenInterview' element= { <PhoneScreenInterview/> } />
         <Route exact path='/analytics' element={ <TutorStateSpecifics/> }/>
 
-        {/* Contact card to take in props? */}
+        
         <Route exact path='/contactStudent' element={ <ContactCardStudent/> }/> 
 
         <Route exact path='/BackgroundCheck' element={ <BackgroundCheck/> } />
@@ -80,35 +97,47 @@ export default function App() {
 
 
       </Routes>
-      <h1>Hello {user.username}</h1>
-          <button onClick={signOut}>Sign out</button>
+      
       </div>
-      <h1>My Notes App</h1>
+      </Router>
+       <h2>Amplify Todos</h2>
       <input
-        onChange={e => setFormData({ ...formData, 'name': e.target.value})}
-        placeholder="Note name"
-        value={formData.name}
+        onChange={event => setInput('name', event.target.value)}
+        style={styles.input}
+        value={formState.name}
+        placeholder="Name"
       />
       <input
-        onChange={e => setFormData({ ...formData, 'description': e.target.value})}
-        placeholder="Note description"
-        value={formData.description}
+        onChange={event => setInput('description', event.target.value)}
+        style={styles.input}
+        value={formState.description}
+        placeholder="Description"
       />
-      <button onClick={createNote}>Create Note</button>
-      <div style={{marginBottom: 30}}>
-        {
-          notes.map(note => (
-            <div key={note.id || note.name}>
-              <h2>{note.name}</h2>
-              <p>{note.description}</p>
-              <button onClick={() => deleteNote(note)}>Delete note</button>
-            </div>
-          ))
-        } </div>
-    </Router>
+      <button style={styles.button} onClick={addTodo}>Create Todo</button>
+      {
+        todos.map((todo, index) => (
+          <div key={todo.id ? todo.id : index} style={styles.todo}>
+            <p style={styles.todoName}>{todo.name}</p>
+            <p style={styles.todoDescription}>{todo.description}</p>
+          </div>
+        ))
+      }
    
-    </div> ) } </Authenticator>
+   
+    </div> ) } 
+    
+    </Authenticator>
   );
 }
+const styles = {
+  container: { width: 400, margin: '0 auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 20 },
+  todo: {  marginBottom: 15 },
+  input: { border: 'none', backgroundColor: '#ddd', marginBottom: 10, padding: 8, fontSize: 18 },
+  todoName: { fontSize: 20, fontWeight: 'bold' },
+  todoDescription: { marginBottom: 0 },
+  button: { backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' }
+}
+
+export default App
 
 
