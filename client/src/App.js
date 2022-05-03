@@ -32,8 +32,7 @@ function App() {
 
             <Route exact path='/search' element={ <UserSearch/> }/>
 
-            {/* Contact card to take in props? */}
-            <Route exact path='/contact-student' element={ <ContactCardStudent/> }/> 
+            <Route exact path='/contact-student' element={ <ContactCardStudent/> }/> {/* Contact card to take in props? */}
 
             <Route exact path='/background-check' element={ <BackgroundCheck/> } />
 

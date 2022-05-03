@@ -1,5 +1,5 @@
 import { DataGrid, GridActionsCellItem } from "@mui/x-data-grid";
-import { Typography, Button, Grid } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
 
 const saveNote = (id) => {
@@ -10,17 +10,26 @@ const columns = [
   {
     field: "date",
     type: "dateTime",
+    flex: 1,
     headerName: "Student Matching Pool Date",
-    width: 200,
   },
-  { field: "priority", headerName: "Priority" },
-  { field: "studentLastName", headerName: "Student Last Name", width: 200 },
-  { field: "tutorLastName", headerName: "Tutor Last Name", width: 200 },
+  { field: "priority", headerName: "Priority", flex: 1 },
+  {
+    field: "studentLastName",
+    headerName: "Student Last Name",
+    flex: 1,
+  },
+  {
+    field: "tutorLastName",
+    headerName: "Tutor Last Name",
+    flex: 1,
+  },
   {
     field: "adminNotes",
-    headerName: "Admin Notes",
-    width: 300,
+    headerName: "Admin Notes ✏️",
+    cellClassName: "input-cell",
     editable: true,
+    flex: 1,
   },
   {
     field: "matchOptions",
@@ -75,16 +84,21 @@ function MatchedTutors() {
       <Typography variant="h4" color="inherit" sx={{ pl: 2 }}>
         Matched Tutors
       </Typography>
-      <div style={{ height: 600, width: "auto", padding: "1em" }}>
+      <Box
+        sx={{
+          height: 600,
+          width: "auto",
+          padding: "1em",
+          "& .input-cell": { border: "1px solid darkgrey", borderRadius: "1em" },
+        }}
+      >
         <DataGrid
           rows={rows}
           columns={columns}
           pageSize={10}
           rowsPerPageOptions={[10, 20, 30]}
-          checkboxSelection
-          disableSelectionOnClick
         />
-      </div>
+      </Box>
     </>
   );
 }
