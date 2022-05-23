@@ -12,3 +12,4 @@ So my next steps are working on connecting the project to aws Elastic Beanstalk 
 
 To run the project locally, clone, then to run client cd client folder, npm install, npm start. To run the server, cd server then npm install, npm start
 
+Client folder has all of the front end react.js code and the code for the individual pages and components can be found under client/src/components and app.js
