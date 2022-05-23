@@ -125,7 +125,7 @@ export default class TutorRegistration extends Component {
                         <Grid container>
                             <Grid xs={5}>
                                 <label className="labelClass"> Profession Title (Please select most applicable)</label>
-                                <select name="profTitle" id="profTitle" form="tutorRegistration" id="selectDropDown">
+                                <select name="profTitle" form="tutorRegistration" id="selectDropDown">
                                     <option>Select</option>
                                     <option>Option 1</option>
                                     <option>Option 2</option>
